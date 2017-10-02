@@ -3,7 +3,7 @@ const commonHooks = require('feathers-hooks-common');
 const createGame = require('../../hooks/create-game');
 const updateGame = require('../../hooks/update-game');
 
-const playerSchema = {
+const playersSchema = {
   include: {
     service: 'users',
     nameAs: 'players',
@@ -26,7 +26,7 @@ module.exports = {
 
   after: {
     all: [
-      commonHooks.populate({ schema: playerSchema }),
+      commonHooks.populate({ schema: playersSchema }),
       commonHooks.when(
         hook => hook.params.provider,
         commonHooks.discard('word')
