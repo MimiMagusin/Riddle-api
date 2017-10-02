@@ -54,6 +54,6 @@ module.exports = function (app) {
     updatedAt: { type: Date, default: Date.now }
   });
 
-  mongooseClient.loadClass(GameClass);
+  games.loadClass(GameClass);
   return mongooseClient.model('games', games);
 };
