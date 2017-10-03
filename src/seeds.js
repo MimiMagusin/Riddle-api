@@ -107,3 +107,5 @@ feathersClient.service('users').create(user)
   .catch(function(error) {
     console.error('Error creating user!', error);
   });
+
+  
