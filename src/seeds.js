@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable quotes */
 const feathers = require('feathers/client');
 const rest = require('feathers-rest/client');
 const superagent = require('superagent');
