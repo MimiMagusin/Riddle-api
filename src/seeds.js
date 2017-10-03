@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const feathers = require('feathers/client');
 const rest = require('feathers-rest/client');
 const superagent = require('superagent');
@@ -71,4 +72,37 @@ const riddles = [
       question: "There is a letter word which can be used to complete the below words. 1 L O _ _ _ E 2.E D U _ _ _ E 3. _ _ _ E R 4. _ _ _ T L E",
       answer: "cat"
   },
-]
+];
+
+// Seed the user and riddle!
+const feathersClient = feathers();
+
+feathersClient
+  .configure(hooks())
+  .configure(rest('http://localhost:3030').superagent(superagent))
+  .configure(auth());
+
+feathersClient.service('users').create(user)
+  .then(() => {
+    feathersClient.authenticate({
+      strategy: 'local',
+      email: user.email,
+      password: user.password
+    })
+      .then(() => {
+        riddles.map((riddle) => {
+          feathersClient.service('riddles').create(riddle)
+            .then((result) => {
+              console.log('Riddle seeded...', result.title);
+            }).catch((error) => {
+              console.error('Error seeding riddle!', error.message);
+            });
+        });
+      })
+      .catch(function(error){
+        console.error('Error authenticating!', error);
+      });
+  })
+  .catch(function(error) {
+    console.error('Error creating user!', error);
+  });
