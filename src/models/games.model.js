@@ -54,6 +54,7 @@ module.exports = function (app) {
     points: { type: Number },
   });
 
+  });
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
     winnerId: { type: mongooseClient.Schema.Types.ObjectId, ref: 'users' },
@@ -64,6 +65,5 @@ module.exports = function (app) {
     players: [ playerSchema ],
   });
 
-  // games.loadClass(GameClass);
   return mongooseClient.model('games', games);
 };
