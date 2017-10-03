@@ -29,7 +29,7 @@ module.exports = {
       commonHooks.populate({ schema: playersSchema }),
       commonHooks.when(
         hook => hook.params.provider,
-        commonHooks.discard('word')
+        commonHooks.discard('riddle')
       )
     ],
     find: [],
