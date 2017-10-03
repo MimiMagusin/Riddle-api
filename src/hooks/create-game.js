@@ -1,7 +1,7 @@
 // Use this hook to manipulate incoming or outgoing data.
 // For more information on hooks see: http://docs.feathersjs.com/api/hooks.html
-const RIDDLES = require ('../seeds');
 
+const RIDDLES = require ('../seeds');
 
 function newRiddle() {
   return RIDDLES[Math.floor(Math.random() * RIDDLES.length)];
