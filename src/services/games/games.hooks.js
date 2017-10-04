@@ -20,8 +20,8 @@ module.exports = {
     find: [],
     get: [],
     create: [createGame()],
-    update: [joinGame()],
-    patch: [joinGame(), guess()],
+    update: [],
+    patch: [],
     remove: []
   },
 
