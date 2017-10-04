@@ -43,7 +43,7 @@
 
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
-  
+
   const riddleSchema = new mongooseClient.Schema({
     riddle: { type: mongooseClient.Schema.Types.ObjectId, ref: 'riddles' },
     wonBy: [ { type: mongooseClient.Schema.Types.ObjectId, ref: 'users' } ],

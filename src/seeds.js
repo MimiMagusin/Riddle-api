@@ -76,32 +76,33 @@ const riddles = [
 ];
 
 // Seed the user and riddle!
-const feathersClient = feathers();
+// const feathersClient = feathers();
 
-feathersClient
-  .configure(hooks())
-  .configure(rest('http://localhost:3030').superagent(superagent))
-  .configure(auth());
-  feathersClient.service('users').create(user)
-  .catch(function(error) {
-    console.error('Error creating user!', error);
-  });
-
-  feathersClient.authenticate({
-    strategy: 'local',
-    email: user.email,
-    password: user.password
-  })
-    .then(() => {
-      riddles.map((riddle) => {
-        feathersClient.service('riddles').create(riddle)
-          .then((result) => {
-            console.log('Riddle seeded...', result.question);
-          }).catch((error) => {
-            console.error('Error seeding riddle!', error.message);
-          });
-      });
-    })
-    .catch(function(error){
-      console.error('Error authenticating!', error);
-    });
+// feathersClient
+//   .configure(hooks())
+//   .configure(rest('http://localhost:3030').superagent(superagent))
+//   .configure(auth());
+//
+//   feathersClient.service('users').create(user)
+//   .catch(function(error) {
+//     console.error('Error creating user!', error);
+//   });
+//
+//   feathersClient.authenticate({
+//     strategy: 'local',
+//     email: user.email,
+//     password: user.password
+//   })
+//     .then(() => {
+//       riddles.map((riddle) => {
+//         feathersClient.service('riddles').create(riddle)
+//           .then((result) => {
+//             console.log('Riddle seeded...', result.question);
+//           }).catch((error) => {
+//             console.error('Error seeding riddle!', error.message);
+//           });
+//       });
+//     })
+//     .catch(function(error){
+//       console.error('Error authenticating!', error);
+//     });
