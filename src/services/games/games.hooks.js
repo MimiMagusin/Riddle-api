@@ -1,7 +1,8 @@
 const { authenticate } = require('feathers-authentication').hooks;
 const commonHooks = require('feathers-hooks-common');
 const createGame = require('../../hooks/create-game');
-const updateGame = require('../../hooks/update-game');
+const joinGame = require('../../hooks/join-game');
+const guess = require('../../hooks/guess');
 
 const playersSchema = {
   include: {
@@ -19,14 +20,14 @@ module.exports = {
     find: [],
     get: [],
     create: [createGame()],
-    update: [updateGame()],
-    patch: [updateGame()],
+    update: [joinGame()],
+    patch: [joinGame(), guess()],
     remove: []
   },
 
   after: {
     all: [
-      commonHooks.populate({ schema: playersSchema }),
+      commonHooks.populate({ schema: playersSchema }),  // why does this get called after, and not before?
       commonHooks.when(
         hook => hook.params.provider,
         commonHooks.discard('riddle')
