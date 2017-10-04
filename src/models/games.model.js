@@ -43,7 +43,7 @@
 
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
-  
+
   const riddleSchema = new mongooseClient.Schema({
     riddle: { type: mongooseClient.Schema.Types.ObjectId, ref: 'riddles' },
     wonBy: [ { type: mongooseClient.Schema.Types.ObjectId, ref: 'users' } ],
@@ -64,6 +64,5 @@ module.exports = function (app) {
     players: [ playerSchema ],
   });
 
-  // games.loadClass(GameClass);
   return mongooseClient.model('games', games);
 };
