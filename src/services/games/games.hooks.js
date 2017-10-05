@@ -1,8 +1,6 @@
 const { authenticate } = require('feathers-authentication').hooks;
 const commonHooks = require('feathers-hooks-common');
 const createGame = require('../../hooks/create-game');
-const joinGame = require('../../hooks/join-game');
-const guess = require('../../hooks/guess');
 
 const playersSchema = {
   include: {
@@ -20,7 +18,7 @@ module.exports = {
     find: [],
     get: [],
     create: [createGame()],
-    update: [joinGame()],
+    update: [],
     patch: [],
     remove: []
   },
