@@ -17,6 +17,7 @@ module.exports = function (app) {
     points: { type: Number },
   });
 
+  
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
     winnerId: { type: mongooseClient.Schema.Types.ObjectId, ref: 'users' },
