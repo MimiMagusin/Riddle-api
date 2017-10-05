@@ -3,7 +3,7 @@
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 
-// class GameClass {
+class GameClass {
   // hasTurn(user) {
   //   return !!user; // TODO
   // }
@@ -39,7 +39,7 @@
   // isStarted() {
   //   return this.guesses.length > 0;
   // }
-// }
+}
 
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
@@ -54,7 +54,7 @@ module.exports = function (app) {
     points: { type: Number },
   });
 
-  });
+  
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
     winnerId: { type: mongooseClient.Schema.Types.ObjectId, ref: 'users' },
