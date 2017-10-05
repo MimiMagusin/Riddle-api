@@ -16,7 +16,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
         hook.data.riddles = [{
           riddle: riddle
         }];
-
+        debugger
         return Promise.resolve(hook);
       });
   };
