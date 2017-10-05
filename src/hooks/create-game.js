@@ -12,8 +12,6 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
         };
         hook.data.players = [{
           userId: hook.params.user._id,
-        }];
-        hook.data.riddles = [{
           riddle: riddle,
           question: riddle.question
         }];
