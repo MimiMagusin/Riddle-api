@@ -6,8 +6,8 @@ module.exports = function(hook) {
   if (!hook.id) {
     return hook.app.service('riddles').find()
       .then((result) => {
-        const all = result.data.map((riddle) => riddle._id);
-        return all[randomIndex(all.length - 1)];
+        const allRiddles = result.data;
+        return allRiddles[randomIndex(allRiddles.length - 1)];
       });
   }
 

@@ -14,9 +14,9 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
           userId: hook.params.user._id,
         }];
         hook.data.riddles = [{
-          riddle: riddle
+          riddle: riddle,
+          question: riddle.question
         }];
-        debugger
         return Promise.resolve(hook);
       });
   };

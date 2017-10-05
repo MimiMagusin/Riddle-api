@@ -8,6 +8,7 @@ module.exports = function (app) {
 
   const riddleSchema = new mongooseClient.Schema({
     riddle: { type: mongooseClient.Schema.Types.ObjectId, ref: 'riddles' },
+    question: { type: String },
     wonBy: [ { type: mongooseClient.Schema.Types.ObjectId, ref: 'users' } ],
   });
 
