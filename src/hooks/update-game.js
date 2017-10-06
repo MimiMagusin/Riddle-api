@@ -12,10 +12,15 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     case JOIN_GAME :
       return randomRiddle(hook)
         .then((riddle) => {
+          const newPlayer = {
+            userId: hook.params.user._id,
+            riddle: riddle._id,
+            question: riddle.question
+          };
+
           hook.data = {
             '$addToSet': {
-              'players.userId': hook.params.user._id,
-              'playerSymbols': riddle
+              'players': newPlayer
             }
           };
 
