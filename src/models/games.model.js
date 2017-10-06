@@ -8,7 +8,7 @@ module.exports = function (app) {
 
   const playerSchema = new mongooseClient.Schema({
     userId: { type: mongooseClient.Schema.Types.ObjectId, ref: 'users' },
-    points: { type: Number },
+    points: { type: Number, default: 0 },
 
     riddle: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'riddles' }],
     question: [{ type: String }],
