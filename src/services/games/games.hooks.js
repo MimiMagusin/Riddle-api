@@ -21,7 +21,7 @@ module.exports = {
     get: [],
     create: [createGame()],
     update: [joinGame()],
-    patch: [joinGame(), guess()],
+    patch: [joinGame()],
     remove: []
   },
 
