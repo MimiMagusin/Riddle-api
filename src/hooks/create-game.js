@@ -13,7 +13,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
         hook.data.players = [{
           userId: hook.params.user._id,
           riddle: riddle,
-          question: riddle.question
+          question: riddle.question,
         }];
         return Promise.resolve(hook);
       });
