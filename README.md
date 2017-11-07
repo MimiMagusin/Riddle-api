@@ -1,8 +1,10 @@
-# games-api-b9
+# Riddle API
 
 > 
 
 ## About
+
+Built for the 9 week intensive program of Codaisseur. API which belongs to React-Game-Starter. Clone bother to view this project! This is a group project building in a game where you need to answer riddles. It is still a work in progress. 
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
